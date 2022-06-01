@@ -1,17 +1,11 @@
 ﻿using Ionic.Zip;
+using SCRRS_Installer.Functions;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using SCRRS_Installer.Functions;
-using System.Diagnostics;
 
 namespace SCRRS_Installer
 {
@@ -45,7 +39,8 @@ namespace SCRRS_Installer
 
             //Checks TS3Client folder in the INI file
             var SettingsINI = new IniFile(Application.StartupPath + "/settings.ini");
-            if (SettingsINI.Read("teamspeakurl", "Settings") == "") {
+            if (SettingsINI.Read("teamspeakurl", "Settings") == "")
+            {
                 SettingsINI.Write("teamspeakurl", Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/AppData/Roaming/TS3Client/plugins/SaltyChat/", "Settings");
             };
 
@@ -72,6 +67,8 @@ namespace SCRRS_Installer
         }
         #endregion
 
+
+        #region Functions
         //Gets the selected version URL
         public string getVersionURL(int version)
         {
@@ -93,50 +90,27 @@ namespace SCRRS_Installer
             }
         }
 
-        private void installbtn_Click(object sender, EventArgs e)
-        {
-            ToggleButtons(false);
-            updateui.Stop();
-            File.Delete(teamspeakurl + "scrrs.zip");
 
-            using (WebClient webClient = new WebClient())
-            {
-                webClient.DownloadProgressChanged += webClient_DownloadProgressChanged;
-                webClient.DownloadFileCompleted += webClient_DownloadFileCompleted;
-                webClient.DownloadFileAsync(new Uri(getVersionURL(selectedversion)), teamspeakurl + "scrrs.zip");
-            }
-            downloadprogressbar.Visible = true;
-        }
-
-        private void updateui_Tick(object sender, EventArgs e)
+        //Toggle visibility for buttons
+        private void ToggleButtons(bool visibility)
         {
-            switch (selectedversion)
+            switch (visibility)
             {
-                case 0:
-                    versionstd.ActiveFillColor = Color.FromArgb(10, 110, 242);
-                    versionstd.IdleFillColor = Color.FromArgb(10, 110, 242);
-                    versionstd_nonoise.ActiveFillColor = Color.FromArgb(16, 17, 20);
-                    versionstd_nonoise.IdleFillColor = Color.FromArgb(16, 17, 20);
+                case true:
+                    installbtn.Visible = true;
+                    uninstallbtn.Visible = true;
                     break;
-                case 1:
-                    versionstd_nonoise.ActiveFillColor = Color.FromArgb(10, 110, 242);
-                    versionstd_nonoise.IdleFillColor = Color.FromArgb(10, 110, 242);
-                    versionstd.ActiveFillColor = Color.FromArgb(16, 17, 20);
-                    versionstd.IdleFillColor = Color.FromArgb(16, 17, 20);
+
+                case false:
+                    installbtn.Visible = false;
+                    uninstallbtn.Visible = false;
                     break;
             }
-
-            folderpath.Text = teamspeakurl;
-
-            if (teamspeakurl == "")
-            {
-                ToggleButtons(false);
-            } else
-            {
-                ToggleButtons(true);
-            }
         }
+        #endregion
 
+
+        #region Buttons
         private void versionstd_Click(object sender, EventArgs e)
         {
             selectedversion = 0;
@@ -152,9 +126,44 @@ namespace SCRRS_Installer
             this.Close();
         }
 
-        private void installation_DoWork(object sender, DoWorkEventArgs e)
+        private void standardfolderbtn_Click(object sender, EventArgs e)
         {
-            
+            var SettingsINI = new IniFile(Application.StartupPath + "/settings.ini");
+            SettingsINI.Write("teamspeakurl", Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/AppData/Roaming/TS3Client/plugins/SaltyChat/", "Settings");
+            teamspeakurl = SettingsINI.Read("teamspeakurl", "Settings");
+            MessageBox.Show("Der Dateipfad wurde erfolgreich zurückgesetzt!");
+        }
+
+        private void uninstallbtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Directory.Delete(teamspeakurl + "override", true);
+                MessageBox.Show("Deinstallation erfolgreich!");
+            }
+            catch (DirectoryNotFoundException)
+            {
+                MessageBox.Show("SCRRS ist nicht installiert!");
+            }
+
+
+        }
+        #endregion
+
+        #region Downloader + Install Button
+        private void installbtn_Click(object sender, EventArgs e)
+        {
+            ToggleButtons(false);
+            updateui.Stop();
+            File.Delete(teamspeakurl + "scrrs.zip");
+
+            using (WebClient webClient = new WebClient())
+            {
+                webClient.DownloadProgressChanged += webClient_DownloadProgressChanged;
+                webClient.DownloadFileCompleted += webClient_DownloadFileCompleted;
+                webClient.DownloadFileAsync(new Uri(getVersionURL(selectedversion)), teamspeakurl + "scrrs.zip");
+            }
+            downloadprogressbar.Visible = true;
         }
 
         private void webClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
@@ -201,7 +210,7 @@ namespace SCRRS_Installer
         }
 
 
-            private void folderpath_Click(object sender, EventArgs e)
+        private void folderpath_Click(object sender, EventArgs e)
         {
             using (var fbd = new FolderBrowserDialog())
             {
@@ -216,44 +225,38 @@ namespace SCRRS_Installer
                 }
             }
         }
+        #endregion
 
-        private void standardfolderbtn_Click(object sender, EventArgs e)
+        #region Timer
+        private void updateui_Tick(object sender, EventArgs e)
         {
-            var SettingsINI = new IniFile(Application.StartupPath + "/settings.ini");
-            SettingsINI.Write("teamspeakurl", Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/AppData/Roaming/TS3Client/plugins/SaltyChat/", "Settings");
-            teamspeakurl = SettingsINI.Read("teamspeakurl", "Settings");
-            MessageBox.Show("Der Dateipfad wurde erfolgreich zurückgesetzt!");
-        }
-
-        private void uninstallbtn_Click(object sender, EventArgs e)
-        {
-            try
+            switch (selectedversion)
             {
-                Directory.Delete(teamspeakurl + "override", true);
-                MessageBox.Show("Deinstallation erfolgreich!");
-            }
-            catch (DirectoryNotFoundException)
-            {
-                MessageBox.Show("SCRRS ist nicht installiert!");
-            }
-
-
-        }
-
-        private void ToggleButtons(bool visibility)
-        {
-            switch (visibility)
-            {
-                case true:
-                    installbtn.Visible = true;
-                    uninstallbtn.Visible = true;
+                case 0:
+                    versionstd.ActiveFillColor = Color.FromArgb(10, 110, 242);
+                    versionstd.IdleFillColor = Color.FromArgb(10, 110, 242);
+                    versionstd_nonoise.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    versionstd_nonoise.IdleFillColor = Color.FromArgb(16, 17, 20);
                     break;
-
-                case false:
-                    installbtn.Visible = false;
-                    uninstallbtn.Visible = false;
+                case 1:
+                    versionstd_nonoise.ActiveFillColor = Color.FromArgb(10, 110, 242);
+                    versionstd_nonoise.IdleFillColor = Color.FromArgb(10, 110, 242);
+                    versionstd.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    versionstd.IdleFillColor = Color.FromArgb(16, 17, 20);
                     break;
             }
+
+            folderpath.Text = teamspeakurl;
+
+            if (teamspeakurl == "")
+            {
+                ToggleButtons(false);
+            }
+            else
+            {
+                ToggleButtons(true);
+            }
+            #endregion
         }
     }
 }

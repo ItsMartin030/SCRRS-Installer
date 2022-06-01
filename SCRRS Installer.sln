@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCRRS Installer", "SCRRS Installer\SCRRS Installer.csproj", "{272EDEC3-3F3B-411F-A6D8-CB7316DF079B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{272EDEC3-3F3B-411F-A6D8-CB7316DF079B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{272EDEC3-3F3B-411F-A6D8-CB7316DF079B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{272EDEC3-3F3B-411F-A6D8-CB7316DF079B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{272EDEC3-3F3B-411F-A6D8-CB7316DF079B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E8EAC389-4703-4020-948B-43A1AE66C026}
+	EndGlobalSection
+EndGlobal

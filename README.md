@@ -1,6 +1,8 @@
 # SCRRS-Installer
 Custom SaltyChat Radio Sounds - Developed by Martin (Saugstauber)
 
+![](https://i.imgur.com/iQqrfsj.png)
+
 ## [Download Version 0.0.1](https://link-url-here.org)
 
 ## Installation

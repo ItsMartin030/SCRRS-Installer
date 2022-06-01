@@ -11,13 +11,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SCRRS_Installer.Functions;
+using System.Diagnostics;
 
 namespace SCRRS_Installer
 {
     public partial class start : Form
     {
         //Programm Version
-        const string version = "0.0.1";
+        const string version = "0.0.2";
 
 
         #region Variables
@@ -30,9 +31,20 @@ namespace SCRRS_Installer
         {
             InitializeComponent();
             versiontxt.Text = version;
-            #region Initalize INI
-            var SettingsINI = new IniFile(Application.StartupPath + "/data/settings.ini");
 
+            #region Initalize INI
+
+            //Checks if INI File exists, if not it creates it and adds standard path
+            if (File.Exists(Application.StartupPath + "/settings.ini") == false)
+            {
+                File.Create(Application.StartupPath + "/settings.ini");
+                ToggleButtons(false);
+                MessageBox.Show("Settings-Datei erstellt. Starte das Programm erneut!");
+                this.Close();
+            }
+
+            //Checks TS3Client folder in the INI file
+            var SettingsINI = new IniFile(Application.StartupPath + "/settings.ini");
             if (SettingsINI.Read("teamspeakurl", "Settings") == "") {
                 SettingsINI.Write("teamspeakurl", Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/AppData/Roaming/TS3Client/plugins/SaltyChat/", "Settings");
             };
@@ -67,20 +79,33 @@ namespace SCRRS_Installer
             {
                 case 0:
                     //Normal Version with White Noise
-                    return Application.StartupPath + "/data/scrrs_normalnoise.zip";
+                    // OLD: return Application.StartupPath + "/data/scrrs_normalnoise.zip";
+                    return "https://github.com/saugstauberr/SCRRS-Installer/raw/master/versions/scrrs_normalnoise.zip";
 
                 case 1:
                     //Normal Version without White Noise
-                    return Application.StartupPath + "";
+                    // OLD: return Application.StartupPath + "";
+                    return "https://github.com/saugstauberr/SCRRS-Installer/raw/master/versions/scrrs_normalnonoise.zip";
 
                 default:
-                    return Application.StartupPath + "/data/scrrs_normalnoise.zip";
+                    // OLD: return Application.StartupPath + "/data/scrrs_normalnoise.zip";
+                    return "https://github.com/saugstauberr/SCRRS-Installer/raw/master/versions/scrrs_normalnoise.zip";
             }
         }
 
         private void installbtn_Click(object sender, EventArgs e)
         {
-            installation.RunWorkerAsync();
+            ToggleButtons(false);
+            updateui.Stop();
+            File.Delete(teamspeakurl + "scrrs.zip");
+
+            using (WebClient webClient = new WebClient())
+            {
+                webClient.DownloadProgressChanged += webClient_DownloadProgressChanged;
+                webClient.DownloadFileCompleted += webClient_DownloadFileCompleted;
+                webClient.DownloadFileAsync(new Uri(getVersionURL(selectedversion)), teamspeakurl + "scrrs.zip");
+            }
+            downloadprogressbar.Visible = true;
         }
 
         private void updateui_Tick(object sender, EventArgs e)
@@ -102,6 +127,14 @@ namespace SCRRS_Installer
             }
 
             folderpath.Text = teamspeakurl;
+
+            if (teamspeakurl == "")
+            {
+                ToggleButtons(false);
+            } else
+            {
+                ToggleButtons(true);
+            }
         }
 
         private void versionstd_Click(object sender, EventArgs e)
@@ -121,18 +154,54 @@ namespace SCRRS_Installer
 
         private void installation_DoWork(object sender, DoWorkEventArgs e)
         {
-            File.Delete(teamspeakurl + "scrrs.zip");
-            File.Copy(getVersionURL(selectedversion), teamspeakurl + "scrrs.zip");
+            
+        }
+
+        private void webClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            downloadprogressbar.Value = e.ProgressPercentage;
+        }
+
+        private void webClient_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            downloadprogressbar.Value = 0;
+
+            if (e.Cancelled)
+            {
+                MessageBox.Show("Ein Fehler ist aufgetreten!");
+                ToggleButtons(true);
+                downloadprogressbar.Visible = false;
+                updateui.Start();
+                return;
+            }
+
+            if (e.Error != null) // We have an error! Retry a few times, then abort.
+            {
+                MessageBox.Show("Ein Fehler ist aufgetreten!");
+                ToggleButtons(true);
+                downloadprogressbar.Visible = false;
+                updateui.Start();
+                return;
+            }
+
+            if (Directory.Exists(teamspeakurl + "override"))
+            {
+                Directory.Delete(teamspeakurl + "override", true);
+            }
 
             using (ZipFile zip = ZipFile.Read(teamspeakurl + "scrrs.zip"))
             {
                 zip.ExtractAll(teamspeakurl);
             }
             File.Delete(teamspeakurl + "scrrs.zip");
+            ToggleButtons(true);
+            downloadprogressbar.Visible = false;
             MessageBox.Show("Installation erfolgreich abgeschlossen!");
+            updateui.Start();
         }
 
-        private void folderpath_Click(object sender, EventArgs e)
+
+            private void folderpath_Click(object sender, EventArgs e)
         {
             using (var fbd = new FolderBrowserDialog())
             {
@@ -140,7 +209,7 @@ namespace SCRRS_Installer
 
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
-                    var SettingsINI = new IniFile(Application.StartupPath + "/data/settings.ini");
+                    var SettingsINI = new IniFile(Application.StartupPath + "/settings.ini");
                     SettingsINI.Write("teamspeakurl", fbd.SelectedPath + "/plugins/SaltyChat/", "Settings");
                     teamspeakurl = SettingsINI.Read("teamspeakurl", "Settings");
                     MessageBox.Show("Dateipfad wurde erfolgreich gesetzt!");
@@ -150,7 +219,7 @@ namespace SCRRS_Installer
 
         private void standardfolderbtn_Click(object sender, EventArgs e)
         {
-            var SettingsINI = new IniFile(Application.StartupPath + "/data/settings.ini");
+            var SettingsINI = new IniFile(Application.StartupPath + "/settings.ini");
             SettingsINI.Write("teamspeakurl", Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "/AppData/Roaming/TS3Client/plugins/SaltyChat/", "Settings");
             teamspeakurl = SettingsINI.Read("teamspeakurl", "Settings");
             MessageBox.Show("Der Dateipfad wurde erfolgreich zurückgesetzt!");
@@ -169,6 +238,22 @@ namespace SCRRS_Installer
             }
 
 
+        }
+
+        private void ToggleButtons(bool visibility)
+        {
+            switch (visibility)
+            {
+                case true:
+                    installbtn.Visible = true;
+                    uninstallbtn.Visible = true;
+                    break;
+
+                case false:
+                    installbtn.Visible = false;
+                    uninstallbtn.Visible = false;
+                    break;
+            }
         }
     }
 }

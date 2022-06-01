@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(start));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
@@ -50,6 +50,7 @@
             this.installation = new System.ComponentModel.BackgroundWorker();
             this.standardfolderbtn = new Bunifu.Framework.UI.BunifuThinButton2();
             this.versiontxt = new System.Windows.Forms.Label();
+            this.downloadprogressbar = new Bunifu.UI.WinForms.BunifuProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,26 +104,26 @@
             this.folderpath.Modified = false;
             this.folderpath.Multiline = false;
             this.folderpath.Name = "folderpath";
-            stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(137)))), ((int)(((byte)(230)))));
-            stateProperties1.FillColor = System.Drawing.Color.Empty;
-            stateProperties1.ForeColor = System.Drawing.Color.Empty;
-            stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.folderpath.OnActiveState = stateProperties1;
-            stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties2.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.folderpath.OnDisabledState = stateProperties2;
-            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(137)))), ((int)(((byte)(230)))));
-            stateProperties3.FillColor = System.Drawing.Color.Empty;
-            stateProperties3.ForeColor = System.Drawing.Color.Empty;
-            stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.folderpath.OnHoverState = stateProperties3;
-            stateProperties4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(242)))));
-            stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
-            stateProperties4.ForeColor = System.Drawing.Color.White;
-            stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.folderpath.OnIdleState = stateProperties4;
+            stateProperties9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(137)))), ((int)(((byte)(230)))));
+            stateProperties9.FillColor = System.Drawing.Color.Empty;
+            stateProperties9.ForeColor = System.Drawing.Color.Empty;
+            stateProperties9.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.folderpath.OnActiveState = stateProperties9;
+            stateProperties10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties10.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            stateProperties10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            stateProperties10.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.folderpath.OnDisabledState = stateProperties10;
+            stateProperties11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(137)))), ((int)(((byte)(230)))));
+            stateProperties11.FillColor = System.Drawing.Color.Empty;
+            stateProperties11.ForeColor = System.Drawing.Color.Empty;
+            stateProperties11.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.folderpath.OnHoverState = stateProperties11;
+            stateProperties12.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(242)))));
+            stateProperties12.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
+            stateProperties12.ForeColor = System.Drawing.Color.White;
+            stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.folderpath.OnIdleState = stateProperties12;
             this.folderpath.Padding = new System.Windows.Forms.Padding(3);
             this.folderpath.PasswordChar = '\0';
             this.folderpath.PlaceholderForeColor = System.Drawing.Color.Silver;
@@ -239,6 +240,7 @@
             this.installbtn.Size = new System.Drawing.Size(215, 36);
             this.installbtn.TabIndex = 55;
             this.installbtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.installbtn.Visible = false;
             this.installbtn.Click += new System.EventHandler(this.installbtn_Click);
             // 
             // uninstallbtn
@@ -265,6 +267,7 @@
             this.uninstallbtn.Size = new System.Drawing.Size(215, 36);
             this.uninstallbtn.TabIndex = 56;
             this.uninstallbtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.uninstallbtn.Visible = false;
             this.uninstallbtn.Click += new System.EventHandler(this.uninstallbtn_Click);
             // 
             // bunifuThinButton21
@@ -317,7 +320,6 @@
             this.versionstd_nonoise.Size = new System.Drawing.Size(501, 36);
             this.versionstd_nonoise.TabIndex = 58;
             this.versionstd_nonoise.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.versionstd_nonoise.Visible = false;
             this.versionstd_nonoise.Click += new System.EventHandler(this.versionstd_nonoise_Click);
             // 
             // updateui
@@ -367,12 +369,40 @@
             this.versiontxt.Text = "Version";
             this.versiontxt.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // downloadprogressbar
+            // 
+            this.downloadprogressbar.AllowAnimations = false;
+            this.downloadprogressbar.Animation = 0;
+            this.downloadprogressbar.AnimationSpeed = 220;
+            this.downloadprogressbar.AnimationStep = 10;
+            this.downloadprogressbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(37)))), ((int)(((byte)(40)))));
+            this.downloadprogressbar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("downloadprogressbar.BackgroundImage")));
+            this.downloadprogressbar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(47)))), ((int)(((byte)(50)))));
+            this.downloadprogressbar.BorderRadius = 9;
+            this.downloadprogressbar.BorderThickness = 1;
+            this.downloadprogressbar.Location = new System.Drawing.Point(27, 548);
+            this.downloadprogressbar.Maximum = 100;
+            this.downloadprogressbar.MaximumValue = 100;
+            this.downloadprogressbar.Minimum = 0;
+            this.downloadprogressbar.MinimumValue = 0;
+            this.downloadprogressbar.Name = "downloadprogressbar";
+            this.downloadprogressbar.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.downloadprogressbar.ProgressBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(37)))), ((int)(((byte)(40)))));
+            this.downloadprogressbar.ProgressColorLeft = System.Drawing.Color.DodgerBlue;
+            this.downloadprogressbar.ProgressColorRight = System.Drawing.Color.DodgerBlue;
+            this.downloadprogressbar.Size = new System.Drawing.Size(500, 14);
+            this.downloadprogressbar.TabIndex = 62;
+            this.downloadprogressbar.Value = 0;
+            this.downloadprogressbar.ValueByTransition = 0;
+            this.downloadprogressbar.Visible = false;
+            // 
             // start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(552, 585);
+            this.Controls.Add(this.downloadprogressbar);
             this.Controls.Add(this.versiontxt);
             this.Controls.Add(this.standardfolderbtn);
             this.Controls.Add(this.versionstd_nonoise);
@@ -387,6 +417,7 @@
             this.Controls.Add(this.folderpath);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "start";
@@ -417,6 +448,7 @@
         private System.ComponentModel.BackgroundWorker installation;
         private Bunifu.Framework.UI.BunifuThinButton2 standardfolderbtn;
         private System.Windows.Forms.Label versiontxt;
+        private Bunifu.UI.WinForms.BunifuProgressBar downloadprogressbar;
     }
 }
 

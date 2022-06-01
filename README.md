@@ -17,3 +17,7 @@ Custom SaltyChat Radio Sounds - Developed by Martin (Saugstauber)
 
 ## Bekannte Bugs
 - Keine.
+
+
+## To-Do-Liste
+- ...

@@ -20,6 +20,6 @@ Custom SaltyChat Radio Sounds - Developed by Martin (Saugstauber)
 
 
 ## To-Do-Liste
-- online .INI Datei, womit die Version-Buttons bearbeitet werden können
+- online .INI Datei, womit die Version-Buttons bearbeitet werden können [Erledigt, kommt im nächsten Update]
 - eigene Mic Clicks anwenden können
 - Audio Preview: Versionen vor dem Installieren anhören können

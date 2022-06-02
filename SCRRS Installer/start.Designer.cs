@@ -41,15 +41,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.versionstd = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.button0 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.installbtn = new Bunifu.Framework.UI.BunifuThinButton2();
             this.uninstallbtn = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.versionstd_nonoise = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.button1 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.updateui = new System.Windows.Forms.Timer(this.components);
             this.standardfolderbtn = new Bunifu.Framework.UI.BunifuThinButton2();
             this.versiontxt = new System.Windows.Forms.Label();
             this.downloadprogressbar = new Bunifu.UI.WinForms.BunifuProgressBar();
+            this.button2 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.button3 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.button4 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.button5 = new Bunifu.Framework.UI.BunifuThinButton2();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -189,31 +193,31 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Version auswählen:";
             // 
-            // versionstd
+            // button0
             // 
-            this.versionstd.ActiveBorderThickness = 1;
-            this.versionstd.ActiveCornerRadius = 5;
-            this.versionstd.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(242)))));
-            this.versionstd.ActiveForecolor = System.Drawing.Color.White;
-            this.versionstd.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(242)))));
-            this.versionstd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
-            this.versionstd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("versionstd.BackgroundImage")));
-            this.versionstd.ButtonText = "Standard Version (mit Rauschen)";
-            this.versionstd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.versionstd.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F);
-            this.versionstd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(107)))), ((int)(((byte)(224)))));
-            this.versionstd.IdleBorderThickness = 1;
-            this.versionstd.IdleCornerRadius = 5;
-            this.versionstd.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(242)))));
-            this.versionstd.IdleForecolor = System.Drawing.Color.White;
-            this.versionstd.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(242)))));
-            this.versionstd.Location = new System.Drawing.Point(26, 323);
-            this.versionstd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.versionstd.Name = "versionstd";
-            this.versionstd.Size = new System.Drawing.Size(501, 36);
-            this.versionstd.TabIndex = 54;
-            this.versionstd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.versionstd.Click += new System.EventHandler(this.versionstd_Click);
+            this.button0.ActiveBorderThickness = 1;
+            this.button0.ActiveCornerRadius = 5;
+            this.button0.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(242)))));
+            this.button0.ActiveForecolor = System.Drawing.Color.White;
+            this.button0.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(242)))));
+            this.button0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
+            this.button0.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button0.BackgroundImage")));
+            this.button0.ButtonText = "0";
+            this.button0.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button0.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F);
+            this.button0.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(107)))), ((int)(((byte)(224)))));
+            this.button0.IdleBorderThickness = 1;
+            this.button0.IdleCornerRadius = 5;
+            this.button0.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(242)))));
+            this.button0.IdleForecolor = System.Drawing.Color.White;
+            this.button0.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(242)))));
+            this.button0.Location = new System.Drawing.Point(26, 323);
+            this.button0.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button0.Name = "button0";
+            this.button0.Size = new System.Drawing.Size(501, 36);
+            this.button0.TabIndex = 54;
+            this.button0.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.button0.Click += new System.EventHandler(this.button0_Click);
             // 
             // installbtn
             // 
@@ -295,31 +299,31 @@
             this.bunifuThinButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuThinButton21.Click += new System.EventHandler(this.bunifuThinButton21_Click);
             // 
-            // versionstd_nonoise
+            // button1
             // 
-            this.versionstd_nonoise.ActiveBorderThickness = 1;
-            this.versionstd_nonoise.ActiveCornerRadius = 5;
-            this.versionstd_nonoise.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
-            this.versionstd_nonoise.ActiveForecolor = System.Drawing.Color.White;
-            this.versionstd_nonoise.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(242)))));
-            this.versionstd_nonoise.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
-            this.versionstd_nonoise.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("versionstd_nonoise.BackgroundImage")));
-            this.versionstd_nonoise.ButtonText = "Standard Version (ohne Rauschen)";
-            this.versionstd_nonoise.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.versionstd_nonoise.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F);
-            this.versionstd_nonoise.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(107)))), ((int)(((byte)(224)))));
-            this.versionstd_nonoise.IdleBorderThickness = 1;
-            this.versionstd_nonoise.IdleCornerRadius = 5;
-            this.versionstd_nonoise.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
-            this.versionstd_nonoise.IdleForecolor = System.Drawing.Color.White;
-            this.versionstd_nonoise.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(242)))));
-            this.versionstd_nonoise.Location = new System.Drawing.Point(26, 354);
-            this.versionstd_nonoise.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.versionstd_nonoise.Name = "versionstd_nonoise";
-            this.versionstd_nonoise.Size = new System.Drawing.Size(501, 36);
-            this.versionstd_nonoise.TabIndex = 58;
-            this.versionstd_nonoise.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.versionstd_nonoise.Click += new System.EventHandler(this.versionstd_nonoise_Click);
+            this.button1.ActiveBorderThickness = 1;
+            this.button1.ActiveCornerRadius = 5;
+            this.button1.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
+            this.button1.ActiveForecolor = System.Drawing.Color.White;
+            this.button1.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(242)))));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.ButtonText = "1";
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F);
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(107)))), ((int)(((byte)(224)))));
+            this.button1.IdleBorderThickness = 1;
+            this.button1.IdleCornerRadius = 5;
+            this.button1.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
+            this.button1.IdleForecolor = System.Drawing.Color.White;
+            this.button1.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(242)))));
+            this.button1.Location = new System.Drawing.Point(26, 354);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(501, 36);
+            this.button1.TabIndex = 58;
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // updateui
             // 
@@ -391,20 +395,128 @@
             this.downloadprogressbar.ValueByTransition = 0;
             this.downloadprogressbar.Visible = false;
             // 
+            // button2
+            // 
+            this.button2.ActiveBorderThickness = 1;
+            this.button2.ActiveCornerRadius = 5;
+            this.button2.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
+            this.button2.ActiveForecolor = System.Drawing.Color.White;
+            this.button2.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(242)))));
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.ButtonText = "2";
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F);
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(107)))), ((int)(((byte)(224)))));
+            this.button2.IdleBorderThickness = 1;
+            this.button2.IdleCornerRadius = 5;
+            this.button2.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
+            this.button2.IdleForecolor = System.Drawing.Color.White;
+            this.button2.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(242)))));
+            this.button2.Location = new System.Drawing.Point(26, 385);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(501, 36);
+            this.button2.TabIndex = 63;
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.ActiveBorderThickness = 1;
+            this.button3.ActiveCornerRadius = 5;
+            this.button3.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
+            this.button3.ActiveForecolor = System.Drawing.Color.White;
+            this.button3.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(242)))));
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
+            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
+            this.button3.ButtonText = "3";
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F);
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(107)))), ((int)(((byte)(224)))));
+            this.button3.IdleBorderThickness = 1;
+            this.button3.IdleCornerRadius = 5;
+            this.button3.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
+            this.button3.IdleForecolor = System.Drawing.Color.White;
+            this.button3.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(242)))));
+            this.button3.Location = new System.Drawing.Point(26, 416);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(501, 36);
+            this.button3.TabIndex = 64;
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.ActiveBorderThickness = 1;
+            this.button4.ActiveCornerRadius = 5;
+            this.button4.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
+            this.button4.ActiveForecolor = System.Drawing.Color.White;
+            this.button4.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(242)))));
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
+            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
+            this.button4.ButtonText = "4";
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F);
+            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(107)))), ((int)(((byte)(224)))));
+            this.button4.IdleBorderThickness = 1;
+            this.button4.IdleCornerRadius = 5;
+            this.button4.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
+            this.button4.IdleForecolor = System.Drawing.Color.White;
+            this.button4.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(242)))));
+            this.button4.Location = new System.Drawing.Point(26, 447);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(501, 36);
+            this.button4.TabIndex = 65;
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.ActiveBorderThickness = 1;
+            this.button5.ActiveCornerRadius = 5;
+            this.button5.ActiveFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
+            this.button5.ActiveForecolor = System.Drawing.Color.White;
+            this.button5.ActiveLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(242)))));
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
+            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
+            this.button5.ButtonText = "5";
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.Font = new System.Drawing.Font("Microsoft PhagsPa", 9.75F);
+            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(107)))), ((int)(((byte)(224)))));
+            this.button5.IdleBorderThickness = 1;
+            this.button5.IdleCornerRadius = 5;
+            this.button5.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
+            this.button5.IdleForecolor = System.Drawing.Color.White;
+            this.button5.IdleLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(110)))), ((int)(((byte)(242)))));
+            this.button5.Location = new System.Drawing.Point(26, 478);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(501, 36);
+            this.button5.TabIndex = 66;
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(17)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(552, 585);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.downloadprogressbar);
             this.Controls.Add(this.versiontxt);
             this.Controls.Add(this.standardfolderbtn);
-            this.Controls.Add(this.versionstd_nonoise);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.bunifuThinButton21);
             this.Controls.Add(this.uninstallbtn);
             this.Controls.Add(this.installbtn);
-            this.Controls.Add(this.versionstd);
+            this.Controls.Add(this.button0);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -433,16 +545,20 @@
         private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton21;
         private Bunifu.Framework.UI.BunifuThinButton2 uninstallbtn;
         private Bunifu.Framework.UI.BunifuThinButton2 installbtn;
-        private Bunifu.Framework.UI.BunifuThinButton2 versionstd;
+        private Bunifu.Framework.UI.BunifuThinButton2 button0;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private Bunifu.Framework.UI.BunifuThinButton2 versionstd_nonoise;
+        private Bunifu.Framework.UI.BunifuThinButton2 button1;
         private System.Windows.Forms.Timer updateui;
         private Bunifu.Framework.UI.BunifuThinButton2 standardfolderbtn;
         private System.Windows.Forms.Label versiontxt;
         private Bunifu.UI.WinForms.BunifuProgressBar downloadprogressbar;
+        private Bunifu.Framework.UI.BunifuThinButton2 button5;
+        private Bunifu.Framework.UI.BunifuThinButton2 button4;
+        private Bunifu.Framework.UI.BunifuThinButton2 button3;
+        private Bunifu.Framework.UI.BunifuThinButton2 button2;
     }
 }
 

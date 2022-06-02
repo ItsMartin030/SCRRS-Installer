@@ -46,6 +46,74 @@ namespace SCRRS_Installer
 
             teamspeakurl = SettingsINI.Read("teamspeakurl", "settings");
             #endregion
+
+            #region Initalize Buttons and Versions INI
+            var VersionsINI = new IniFile(Application.StartupPath + "/btn.ini");
+
+            var webRequest = WebRequest.Create(@"https://raw.githubusercontent.com/saugstauberr/SCRRS-Installer/master/versions/versions.ini");
+
+            using (var response = webRequest.GetResponse())
+            using (var content = response.GetResponseStream())
+            using (var reader = new StreamReader(content))
+            {
+                var strContent = reader.ReadToEnd();
+                File.WriteAllText("btn.ini", strContent);
+            }
+
+            if (VersionsINI.Read("name", "Button0") != "hide")
+            {
+                button0.ButtonText = VersionsINI.Read("name", "Button0");
+            } else
+            {
+                button0.Visible = false;
+            }
+
+            if (VersionsINI.Read("name", "Button1") != "hide")
+            {
+                button1.ButtonText = VersionsINI.Read("name", "Button1");
+            }
+            else
+            {
+                button1.Visible = false;
+            }
+
+            if (VersionsINI.Read("name", "Button2") != "hide")
+            {
+                button2.ButtonText = VersionsINI.Read("name", "Button2");
+            }
+            else
+            {
+                button2.Visible = false;
+            }
+
+            if (VersionsINI.Read("name", "Button3") != "hide")
+            {
+                button3.ButtonText = VersionsINI.Read("name", "Button3");
+            }
+            else
+            {
+                button3.Visible = false;
+            }
+
+            if (VersionsINI.Read("name", "Button4") != "hide")
+            {
+                button4.ButtonText = VersionsINI.Read("name", "Button4");
+            }
+            else
+            {
+                button4.Visible = false;
+            }
+
+            if (VersionsINI.Read("name", "Button5") != "hide")
+            {
+                button5.ButtonText = VersionsINI.Read("name", "Button5");
+            }
+            else
+            {
+                button5.Visible = false;
+            }
+
+            #endregion
         }
 
         #region Draggable Window
@@ -72,20 +140,28 @@ namespace SCRRS_Installer
         //Gets the selected version URL
         public string getVersionURL(int version)
         {
+            var VersionsINI = new IniFile(Application.StartupPath + "/btn.ini");
             switch (version)
             {
                 case 0:
-                    //Normal Version with White Noise
-                    // OLD: return Application.StartupPath + "/data/scrrs_normalnoise.zip";
-                    return "https://github.com/saugstauberr/SCRRS-Installer/raw/master/versions/scrrs_normalnoise.zip";
+                    return VersionsINI.Read("url", "Button0");
 
                 case 1:
-                    //Normal Version without White Noise
-                    // OLD: return Application.StartupPath + "";
-                    return "https://github.com/saugstauberr/SCRRS-Installer/raw/master/versions/scrrs_normalnonoise.zip";
+                    return VersionsINI.Read("url", "Button1");
+
+                case 2:
+                    return VersionsINI.Read("url", "Button2");
+
+                case 3:
+                    return VersionsINI.Read("url", "Button3");
+
+                case 4:
+                    return VersionsINI.Read("url", "Button4");
+
+                case 5:
+                    return VersionsINI.Read("url", "Button5");
 
                 default:
-                    // OLD: return Application.StartupPath + "/data/scrrs_normalnoise.zip";
                     return "https://github.com/saugstauberr/SCRRS-Installer/raw/master/versions/scrrs_normalnoise.zip";
             }
         }
@@ -111,14 +187,34 @@ namespace SCRRS_Installer
 
 
         #region Buttons
-        private void versionstd_Click(object sender, EventArgs e)
+        private void button0_Click(object sender, EventArgs e)
         {
             selectedversion = 0;
         }
 
-        private void versionstd_nonoise_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             selectedversion = 1;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            selectedversion = 2;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            selectedversion = 3;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            selectedversion = 4;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            selectedversion = 5;
         }
 
         private void bunifuThinButton21_Click(object sender, EventArgs e)
@@ -233,16 +329,88 @@ namespace SCRRS_Installer
             switch (selectedversion)
             {
                 case 0:
-                    versionstd.ActiveFillColor = Color.FromArgb(10, 110, 242);
-                    versionstd.IdleFillColor = Color.FromArgb(10, 110, 242);
-                    versionstd_nonoise.ActiveFillColor = Color.FromArgb(16, 17, 20);
-                    versionstd_nonoise.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button0.ActiveFillColor = Color.FromArgb(10, 110, 242);
+                    button0.IdleFillColor = Color.FromArgb(10, 110, 242);
+                    button1.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button1.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button2.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button2.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button3.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button3.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button4.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button4.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button5.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button5.IdleFillColor = Color.FromArgb(16, 17, 20);
                     break;
                 case 1:
-                    versionstd_nonoise.ActiveFillColor = Color.FromArgb(10, 110, 242);
-                    versionstd_nonoise.IdleFillColor = Color.FromArgb(10, 110, 242);
-                    versionstd.ActiveFillColor = Color.FromArgb(16, 17, 20);
-                    versionstd.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button0.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button0.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button1.ActiveFillColor = Color.FromArgb(10, 110, 242);
+                    button1.IdleFillColor = Color.FromArgb(10, 110, 242);
+                    button2.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button2.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button3.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button3.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button4.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button4.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button5.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button5.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    break;
+                case 2:
+                    button0.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button0.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button1.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button1.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button2.ActiveFillColor = Color.FromArgb(10, 110, 242);
+                    button2.IdleFillColor = Color.FromArgb(10, 110, 242);
+                    button3.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button3.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button4.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button4.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button5.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button5.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    break;
+                case 3:
+                    button0.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button0.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button1.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button1.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button2.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button2.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button3.ActiveFillColor = Color.FromArgb(10, 110, 242);
+                    button3.IdleFillColor = Color.FromArgb(10, 110, 242);
+                    button4.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button4.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button5.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button5.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    break;
+                case 4:
+                    button0.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button0.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button1.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button1.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button2.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button2.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button3.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button3.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button4.ActiveFillColor = Color.FromArgb(10, 110, 242);
+                    button4.IdleFillColor = Color.FromArgb(10, 110, 242);
+                    button5.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button5.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    break;
+                case 5:
+                    button0.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button0.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button1.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button1.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button2.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button2.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button3.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button3.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button4.ActiveFillColor = Color.FromArgb(16, 17, 20);
+                    button4.IdleFillColor = Color.FromArgb(16, 17, 20);
+                    button5.ActiveFillColor = Color.FromArgb(10, 110, 242);
+                    button5.IdleFillColor = Color.FromArgb(10, 110, 242);
                     break;
             }
 

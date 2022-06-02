@@ -1,11 +1,16 @@
 # SCRRS-Installer
 Custom SaltyChat Radio Sounds - Developed by Martin (Saugstauber)
 
-### [Download](https://github.com/ItsMartin030/SCRRS-Installer/releases/download/v0.0.2/SCRRS.Installer.exe)
+### [Download](https://github.com/ItsMartin030/SCRRS-Installer/releases/download/v0.0.3/SCRRS.Installer.exe)
 ### [Zur Webseite](https://sites.google.com/view/saltychat-sounds-tutorial/startseite)
 
+## Funktionen
+- diverse realistische Funksounds für Teamspeak 3 SaltyChat
+- Anti-Crash Sounds für Crash-Minimierung
+- vollständige automatische Installaton und Deinstallation
+
 ## Vorschau
-![](https://i.imgur.com/iQqrfsj.png)
+![](https://i.imgur.com/D0Cav1B.png)
 
 
 

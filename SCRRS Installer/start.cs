@@ -12,7 +12,7 @@ namespace SCRRS_Installer
     public partial class start : Form
     {
         //Programm Version
-        const string version = "0.0.2";
+        const string version = "0.0.3";
 
 
         #region Variables
@@ -137,6 +137,44 @@ namespace SCRRS_Installer
 
 
         #region Functions
+
+        public void runVersionAdds(int version)
+        {
+            var VersionsINI = new IniFile(Application.StartupPath + "/btn.ini");
+            switch (VersionsINI.Read("adds", "Button" + version))
+            {
+                case "ac":
+                    renameDefault();
+                    break;
+
+                default:
+                    undoDefault();
+                    break;
+            }
+        }
+
+        public void renameDefault()
+        {
+            try
+            {
+                Directory.Move(teamspeakurl + "default", teamspeakurl + "default_renamed");
+            } catch (Exception ex)
+            {
+                
+            }
+        }
+        public void undoDefault()
+        {
+            try
+            {
+                Directory.Move(teamspeakurl + "default_renamed", teamspeakurl + "default");
+            }
+            catch (Exception ex)
+            {
+                
+            }
+        }
+
         //Gets the selected version URL
         public string getVersionURL(int version)
         {
@@ -260,6 +298,7 @@ namespace SCRRS_Installer
                 webClient.DownloadFileAsync(new Uri(getVersionURL(selectedversion)), teamspeakurl + "scrrs.zip");
             }
             downloadprogressbar.Visible = true;
+            runVersionAdds(selectedversion);
         }
 
         private void webClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)

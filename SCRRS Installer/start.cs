@@ -223,7 +223,6 @@ namespace SCRRS_Installer
         }
         #endregion
 
-
         #region Buttons
         private void button0_Click(object sender, EventArgs e)
         {
@@ -273,6 +272,7 @@ namespace SCRRS_Installer
             try
             {
                 Directory.Delete(teamspeakurl + "override", true);
+                undoDefault();
                 MessageBox.Show("Deinstallation erfolgreich!");
             }
             catch (DirectoryNotFoundException)

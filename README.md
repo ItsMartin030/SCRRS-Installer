@@ -17,7 +17,7 @@ Custom SaltyChat Radio Sounds - Developed by Martin (Saugstauber)
 ## Installation Tutorial
 1. Geh auf "Releases" und downloade die neuste Version.
 2. Führe die .exe aus, wähle Deine Version aus und klicke auf "Installieren". **Stelle sicher, dass der TS3Client Ordner korrekt ausgewählt ist!**
-3. Fertig! Zum Installieren klicke einfach "Deinstallieren".
+3. Fertig! Zum Deinstallieren wähle die Version aus und klicke auf "Deinstallieren".
 
 
 ## Bekannte Bugs

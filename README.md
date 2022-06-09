@@ -10,7 +10,7 @@ Custom SaltyChat Radio Sounds - Developed by Martin (Saugstauber)
 - vollständige automatische Installaton und Deinstallation
 
 ## Vorschau
-![](https://i.imgur.com/D0Cav1B.png)
+![](https://i.imgur.com/nSbxS6P.png)
 
 
 

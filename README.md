@@ -20,6 +20,9 @@ Custom SaltyChat Radio Sounds - Developed by Martin (Saugstauber)
 3. Fertig! Zum Deinstallieren wähle die Version aus und klicke auf "Deinstallieren".
 
 
+## Antivirus Hinweis
+Der verantwortliche Code, weswegen das Antivirus anschlägt, ist bei Zeile 51 - 114. Dieser wird allerdings benötigt, damit die Buttons richtig synchronisiert werden, da die URLs und Beschriftungen für die Buttons online gelesen werden. Dies dient dazu, damit das Programm variabel ist und nicht ständig geupdatet werden muss bei neuen Soundpacks oder ähnlichem.
+
 ## Bekannte Bugs
 - Keine.
 
